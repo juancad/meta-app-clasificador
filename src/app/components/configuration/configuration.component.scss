@@ -1,0 +1,33 @@
+.action-buttons {
+    padding-bottom: 20px;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headers-align .mat-mdc-form-field+.mat-mdc-form-field {
+    margin-left: 8px;
+}
+
+input {
+    max-width: 80px;
+}
+
+.colorPicker {
+    border: 2px solid black;
+    display: inline-block;
+    padding: 0px 5px 0px 5px;
+    margin: 0px 5px 0px 5px;
+    color: #6a6a6a;
+}
+
+.align-buttons button,
+.align-buttons a {
+  margin-right: 8px;
+}
+
+.align-buttons mat-icon {
+    margin: 0px;
+}

@@ -1,0 +1,47 @@
+<app-modelo [configuration]="configuration"></app-modelo>
+
+<mat-card>
+    <div id="configuration-panel">
+        <mat-accordion class="headers-align" multi>
+            <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Cambiar estilo
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Cambia los colores y la fuente del texto de la aplicación.
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                Selecciona la alineación:<br/>
+                <div class="align-buttons">
+                    <button mat-raised-button (click)="setAlign(Align.left)"><mat-icon>format_align_left</mat-icon></button>
+                    <button mat-raised-button (click)="setAlign(Align.center)"><mat-icon>format_align_center</mat-icon></button>
+                    <button mat-raised-button (click)="setAlign(Align.right)"><mat-icon>format_align_right</mat-icon></button>
+                    <button mat-raised-button (click)="setAlign(Align.justify)"><mat-icon>format_align_justify</mat-icon></button>
+                </div>
+                <br /><br />
+                Color de fondo: <div class="colorPicker" [style.background]="configuration.backgroundColor"
+                    [(colorPicker)]="configuration.backgroundColor">{{configuration.backgroundColor}}</div>
+                Color del texto: <div class="colorPicker" [style.background]="configuration.contentColor"
+                    [(colorPicker)]="configuration.contentColor">{{configuration.contentColor}}</div>
+                Color de los títulos: <div class="colorPicker" [style.background]="configuration.titleColor"
+                    [(colorPicker)]="configuration.titleColor">{{configuration.titleColor}}</div>
+            </mat-expansion-panel>
+            <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Descripción
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Añade o cambia la descripción de la aplicación.
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-form-field appearance="fill">
+                    <mat-label>Textarea</mat-label>
+                    <textarea #description type="text" matInput description>{{configuration.description}}</textarea>
+                </mat-form-field><br />
+                <button mat-raised-button (click)="setDescription(description.value)">Guardar</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</mat-card>
